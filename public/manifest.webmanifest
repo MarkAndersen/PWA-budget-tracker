@@ -15,7 +15,8 @@
           }
         ],
         "start_url": "/",
-        "background_color": "#808080",
+        "description": "this is a budget tracker that can work online and offline",
+        "background_color": "#ffffff",
         "display": "standalone",
-        "theme_color": "#808080"
+        "theme_color": "#ffffff"
       }

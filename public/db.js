@@ -18,6 +18,7 @@ request.onerror = (e) => {
 };
 
 //To pull data stored offline and store it in our backend db
+//** failing at the POST  **/
 const transferDatabase = () => {
   //create a transaction instance in our offline DB
   const transaction = db.transaction(["BudgetTrackerStore"], "readwrite");
@@ -61,7 +62,7 @@ request.onsuccess = (e) => {
 
 const saveRecord = (data) => {
   const transaction = db.transaction(["BudgetTrackerStore"], "readwrite");
-  const store = transaction.objectStoreNames("BudgetTrackerStore");
+  const store = transaction.objectStore("BudgetTrackerStore");
   store.add(data);
 };
 
