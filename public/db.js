@@ -10,7 +10,7 @@ request.onupgradeneeded = (e) => {
 };
 request.onerror = (e) => {
     console.log(`error: ${e.target}`);
-}
+};
 request.onsuccess = (e) => {
     console.log('success!');
     db = e.target.result
@@ -20,3 +20,11 @@ request.onsuccess = (e) => {
         //check database function
     }
 }
+
+const saveRecord = (data) => {
+    const transaction = db.transaction(['BudgetTrackerStore'], 'readwrite');
+    const store = transaction.objectStoreNames('BudgetTrackerStore');
+    store.add(data);
+};
+
+window.addEventListener('online', "**function here**")
