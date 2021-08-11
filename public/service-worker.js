@@ -1,5 +1,5 @@
 console.log('working!')
-
+//defining caches
 const FILES_TO_CACHE = [
     "/",
     "/index.html",
@@ -12,6 +12,8 @@ const FILES_TO_CACHE = [
 ];
 const STATIC_CACHE = "static-cache-v1";
 const RUNTIME_CACHE = "runtime-cache";
+
+//upon service worker install => put files into cache
 self.addEventListener("install", event => {
     event.waitUntil(
         caches
@@ -20,6 +22,7 @@ self.addEventListener("install", event => {
         .then(() => self.skipWaiting())
     );
 });
+//clearing old caches
 self.addEventListener('activate', (event) => {
     const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
     event.waitUntil(

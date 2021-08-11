@@ -27,7 +27,7 @@ const transferDatabase = () => {
  //Connect to backend and add offline records => clear offline storage
   getRecords.onsuccess = () => {
     if (getRecords.result.length > 0) {
-      fetch("/api/transcation/bulk", {
+      fetch("/api/transaction/bulk", {
         method: "POST",
         body: JSON.stringify(getRecords.result),
         headers: {
@@ -38,7 +38,7 @@ const transferDatabase = () => {
         .then((response) => response.json())
         .then((res) => {
           if (res.length !== 0) {
-            transaction = db.transaction(["BudgetTrackerStore"], "readwrite");
+            const transaction = db.transaction(["BudgetTrackerStore"], "readwrite");
             const newStore = transaction.objectStore("BudgetTrackerStore");
             newStore.clear();
             console.log("cleared store");
