@@ -42,22 +42,22 @@ self.addEventListener('activate', (event) => {
     );
   });
   //this block below may be all that is breaking this app
-  self.addEventListener('fetch', (event) => {
-    if (event.request.url.startsWith(self.location.origin)) {
-      event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
+  // self.addEventListener('fetch', (event) => {
+  //   if (event.request.url.startsWith(self.location.origin)) {
+  //     event.respondWith(
+  //       caches.match(event.request).then((cachedResponse) => {
+  //         if (cachedResponse) {
+  //           return cachedResponse;
+  //         }
   
-          return caches.open(RUNTIME_CACHE).then((cache) => {
-            return fetch(event.request).then((response) => {
-              return cache.put(event.request, response.clone()).then(() => {
-                return response;
-              });
-            });
-          });
-        })
-      );
-    }
-  });
+  //         return caches.open(RUNTIME_CACHE).then((cache) => {
+  //           return fetch(event.request).then((response) => {
+  //             return cache.put(event.request, response.clone()).then(() => {
+  //               return response;
+  //             });
+  //           });
+  //         });
+  //       })
+  //     );
+  //   }
+  // });
