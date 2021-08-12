@@ -36,7 +36,7 @@ The purpose of this excercise was to add functionality to starter code in order 
 ![Online-Reload](./images/PWA-3.PNG)
 
 ## Challenges & Thoughts:
-- I had some issues with their being errors in the console log claiming I have issues with fetching a POST route, however everything seems to be functioning correctly on front and back end, working offline as intended, getting '200' responses on the backend as well while online. This seems like a useful practice for any application using a shopping cart or anything a user could come back to and use after a prolong period away.
+- I had some issues with their being errors in the console log claiming I have issues with fetching a POST route, however everything seems to be functioning correctly on front and back end, working offline as intended, getting '200' responses on the backend as well while online. Turns out I had some superfluous code in the service worker that was trying to cache POST requests and creating promise rejections... removing that block fixed the app. This seems like a useful practice for any application using a shopping cart or anything a user could come back to and use after a prolong period away. 
 
 ## Questions/Links:
 https://github.com/MarkAndersen
